@@ -1,0 +1,85 @@
+/*
+*	Style sheet that attempts to fram everything to the center of the page.
+*/
+
+body {	
+	 margin:0px;
+	 padding:0px;
+	 font-family: tahoma;
+	background-color: CAC4CE;
+	}
+
+#header {
+	text-align:center;
+	font-family:tahoma;
+	//font-style:bolder;
+	font-size:48;
+	line-height:100px;
+	//position:absolute;
+	background-color:CAC4CE;
+	height:100px;
+	width:100%;
+}
+
+#topNav{
+	text-align:center;
+	//position:absolute;
+	background-color:725AC1;
+	top:100px;
+	height:40px;
+	width:100%;	
+}
+
+#sideNav{
+	//display:none;
+	position:absolute;
+	float: left;
+	top:175px;	
+	height: 100%;	
+	background-color:725AC1;
+}
+
+#content{
+	align:center;
+	margin: auto;
+	//position: absolute;
+	top: 175px;
+	background-color:F7ECE1;
+	width:800px;
+	height:100%;
+	padding:20px;
+	
+}a:hover {background-color: 242038;	
+			color: white;}
+			
+	.topNavLink	{
+		//width: 100px;
+		padding-left: 20px;
+		padding-right:20px;
+		text-decoration:none;
+		background-color: 8D86C9;
+		line-height:40px;
+		display: inline-block;
+		color: white;
+	}
+	
+	.sideNavLink{
+		width: 250px;
+		padding-left: 20px;
+		padding-right:20px;
+		text-decoration:none;
+		background-color: 8D86C9;
+		line-height:50px;
+		display: inline-block;
+		color: white;
+	}
+	
+	.codeBox { background:white;	
+		font-family: courier;
+		border: solid black 1px;
+		width: 600px;
+		position: relative;
+		padding:20px;
+		//height: 600px;		
+	}	
+				

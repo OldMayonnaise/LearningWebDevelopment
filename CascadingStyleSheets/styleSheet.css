@@ -1,0 +1,80 @@
+ body {
+	 margin:0px;
+	 padding:0px;
+	 font-family: tahoma;
+	}
+	
+	h1{
+		font-size:48;
+		margin:0px;
+		//height:100px;
+		padding:20px;
+	}
+	
+	// the following lines starting with a  is an ID
+	#header {
+		font-size:48;
+		height:100px;
+		//padding:20px;
+	}
+	
+	#topNav {background-color: 666666;
+				position: absolute;				
+				width:100%;
+				top:100px;
+				height:50px;
+				//margin:0px;
+				//padding:10px;}
+	
+	#sideNav {background-color: 999999;
+				position: absolute;				
+				top:150px;
+				width:250px;
+				height:100%;
+				//margin:20px;
+				//padding:20px;}
+	
+	#content {background-color: e5e5e5;
+				position: absolute;
+				top:150px;
+				left:250px;
+				width:100%;
+				height:100%;
+				//margin:0px;
+				padding:20px;}
+	
+		
+	a:hover {background-color: black;	
+			color: white;}
+			
+	.topNavLink	{
+		width: 150px;
+		padding-left: 20px;
+		padding-right:20px;
+		text-decoration:none;
+		background-color: grey;
+		line-height:50px;
+		display: inline-block;
+		color: white;
+	}
+	
+	.sideNavLink{
+		width: 250px;
+		padding-left: 20px;
+		padding-right:20px;
+		text-decoration:none;
+		background-color: grey;
+		line-height:50px;
+		display: inline-block;
+		color: white;
+	}
+	
+	.codeBox { background:white;	
+		font-family: courier;
+		border: solid black 1px;
+		width: 600px;
+		position: relative;
+		padding:20px;
+		//height: 600px;		
+	}	
+				
