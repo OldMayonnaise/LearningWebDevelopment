@@ -2,7 +2,7 @@
 	 margin:0px;
 	 padding:0px;
 	 font-family: tahoma;
-	}
+	}	
 	
 	h1{
 		font-size:48;
@@ -11,7 +11,24 @@
 		padding:20px;
 	}
 	
+	/* h2{
+		//font-size:48;
+		margin:0px;
+		//height:100px;
+		padding-left:20px;
+	} */
+	
+	p {
+		width:800px;
+	}
+	
+	ul {
+		list-style-type:none;
+		float:left;
+	}
+	
 	// the following lines starting with a  is an ID
+	// this header is taking up too much space on the page
 	#header {
 		font-size:48;
 		height:100px;
