@@ -27,6 +27,10 @@
 		float:left;
 	}
 	
+	/* ol {
+		line-style-type:"1";
+	} */
+	
 	// the following lines starting with a  is an ID
 	// this header is taking up too much space on the page
 	#header {
