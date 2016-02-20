@@ -1,11 +1,40 @@
 <?php
 
-	$yesNo = true;
+	echo 'this is an example comparing two ints';
+	echo '<br/>';
 	
-	if ($yesNo == true) {
-		echo 'yes no is true';			
+	$firstInt = 5;
+	$secondInt = 3;
+	
+	if ($firstInt >= $secondInt){
+		echo $firstInt . ' is greater than ' . $secondInt; 
 	} else {
-		echo '1 does not equal 2';
+		echo $firstInt . ' is less than ' . $secondInt;
+	}
+
+	echo '<br/>';
+	echo 'this is an example comparing two strings';
+	echo '<br/>';
+	
+	$firstString = 'this is a string';
+	$secondString = 'this is a string';
+	
+	if($firstString == $secondString){
+		echo 'both strings are the same';
+	} else {
+		echo 'the strings are different';
+	}
+	
+	echo '<br/>';
+	echo 'this is an example testing a boolean';
+	echo '<br/>';
+	
+	$booleanVariable = true;
+	
+	if ($booleanVariable) {
+		echo 'the boolean variable is true';			
+	} else {
+		echo 'the boolean variable is false';
 	}
 
 
