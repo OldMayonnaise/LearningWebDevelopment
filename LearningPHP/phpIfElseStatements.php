@@ -11,7 +11,18 @@
 	} else {
 		echo $firstInt . ' is less than ' . $secondInt;
 	}
+	
+	echo '<br/>';
 
+	// else if statement
+	if ($firstInt == 10){
+		echo 'firstInt is equal to 10';
+	} else if ($secondInt == 10){
+		echo 'secondInt is equal to 10';
+	} else {
+		echo 'neither Int is equal to 10';
+	}
+	
 	echo '<br/>';
 	echo 'this is an example comparing two strings';
 	echo '<br/>';
@@ -37,7 +48,10 @@
 		echo 'the boolean variable is false';
 	}
 
+	
+	
 
+	
 ?>
 
 <html>
