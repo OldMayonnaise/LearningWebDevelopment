@@ -6,25 +6,21 @@
     <link rel="styleSheet" type="text/css" href="/CascadingStyleSheets/styleSheet.css" />
   </head>
   <body>
-  
     <div id="header">
       <h1>Production Book Notes Portfolio</h1>
     </div>
-	
     <div id="topnav">
     <a class="topNavLink" href="/index.html">Home</a> 
-    <a class="topNavLink" href="/Blog/indexBlog.html">Blog</a>
-	<a class="topNavLink" href="/LearningPHP/indexPHP.html">Learing PHP</a>
-	<a class="topNavLink" href="indexCSS.html">CSS</a>	
+    <a class="topNavLink" href="/Blog/indexBlog.html">Blog</a> 
+    <a class="topNavLink" href="/LearningPHP/indexPHP.html">Learing PHP</a> 
+    <a class="topNavLink" href="indexCSS.html">CSS</a> 
     <a class="topNavLink" href="indexJava.html">Java</a> 
     <a class="topNavLink" href="indexCSS.html">CSS</a> 
     <a class="topNavLink" href="indexHTML.html">Blender</a> 
     <a class="topNavLink" href="indexHTML.html">3D Printing</a> 
     <a class="topNavLink" href="indexHTML.html">Digital Animation</a> 
     <a class="topNavLink" href="indexHTML.html">C#</a> 
-    <a class="topNavLink" href="indexHTML.html">SQL</a>
-	</div>
-	
+    <a class="topNavLink" href="indexHTML.html">SQL</a></div>
     <div id="sideNav">
       <br />
       <a class="sideNavLink" href="/LearningCSS/indexCSS.html">Learing CSS</a>
@@ -35,35 +31,55 @@
       <br />
       <a class="sideNavLink" href="/LearningPHP/indexPHP.html">Learing PHP</a>
     </div>
-	
     <div id="content">
-	<h3>Friday February 19, 2016 - Git and Push Requests</h3>
-	<p>I just updated a project so now I need to quickly figure out how to move these changes to the Git server (GitHub).</p>
-	<p>My goal was to use Git and GitHub as a way to work on my projects from whatever machine I happened to be at at the time. 
-	Git is the version control system and GitHub is a remote Git server where the source code can be stored. In the beginning I thought they were one in the same.
-	I installed Git and GitHub desktop however I'm fairly certain all I really needed was Git and a GitHub account.
-	I tried using the GitHub GUI but that was bullshit and didn't seem to work all too well, I couldn't figure out a good workflow and get things to sync up the way I
-	wanted them to. Currently I am using the Git bash and a GitHub repository I created.
-	
-	<ol>
-		<li>I created a repository on the GitHub website to store my project. </li>
-		<li>Used Git bash commandline to navigate to my local project folder and initialize the Git information
-		<p class="codebox">cd ..
-		<br/>#up one directory
-		<br/>cd /target/directory
-		<br/># change to target directory
-		<br/>git init
-		<br/># initialize directory with Git info
-		</p>
-		</li>
-		<li></li>
-		<li></li>
-	</ol>
-	</br>Learn how upload your project to GitHub remote repository <a href="https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/">here</a>
-	
-	<h2>Wrapping my head around Git and GitHub</h2>
-	<h3>Thursday February 18, 2016</h3>
-	<p>Just now I figured out how to change the root folder on Xampp</P>
+    <h3>Friday February 19, 2016 - Git and Push Requests</h3>
+    <p>I just updated a project so now I need to quickly figure out how to move these changes to the Git server (GitHub).</p>
+    <p>My goal was to use Git and GitHub as a way to work on my projects from whatever machine I happened to be at at the time. Git
+    is the version control system and GitHub is a remote Git server where the source code can be stored. In the beginning I thought
+    they were one in the same. I installed Git and GitHub desktop however I&#39;m fairly certain all I really needed was Git and a
+    GitHub account. I tried using the GitHub GUI but that was bullshit and didn&#39;t seem to work all too well, I couldn&#39;t
+    figure out a good workflow and get things to sync up the way I wanted them to. Currently I am using the Git bash and a GitHub
+    repository I created.</p>
+    <p class="codebox">$ cd ..
+    <br />#up one directory
+    <br />
+    <br />$ cd /target/directory
+    <br /># change to target directory
+    <br />
+    <br />$ git init
+    <br /># initialize directory with Git info
+    <br />
+    <br />$ git remote add origin http://remote.repositoryURL.git
+    <br /># Sets the new remote
+    <br />
+    <br />$ git remote -v
+    <br /># Verifies the new remote URL</p>
+    <br />updating the repository after completing some work on it.
+    <p class="codebox">$ git add .
+    <br /># Adds the files in the local repository and stages them for commit. To unstage a file, use &#39;git reset HEAD
+    YOUR-FILE&#39;.
+    <br />
+    <br />$ git commit -m &quot;First commit&quot;
+    <br /># Commits the tracked changes and prepares them to be pushed to a remote repository. To remove this commit and modify the
+    file, use &#39;git reset --soft HEAD~1&#39; and commit and add the file again.
+    <br />
+    <br />$ git push origin master
+    <br /># Pushes the changes in your local repository up to the remote repository you specified as the origin</p>
+    <br />Getting changes from the repository
+    <p class="codebox">git fetch remotename
+    <br /># Fetches updates made to a remote repository
+    <br />
+    <br />git merge remotename/branchname
+    <br /># Merges updates made online with your local work
+    <br />
+    <br />git pull remotename branchname
+    <br /># Grabs online updates and merges them with your local work</p>
+    <br />
+    <br />Learn how upload your project to GitHub remote repository 
+    <a href="https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/">here</a>
+    <h2>Wrapping my head around Git and GitHub</h2>
+    <h3>Thursday February 18, 2016</h3>
+    <p>Just now I figured out how to change the root folder on Xampp</p>
     <p>Apparentlu I am not allowed to use IDs more than once per page. That is OK I can just use classes.</p>
     <p class="codeBox">Testing the new code box.
     <br />Can we create a discussion on a boycott of msp?
@@ -73,8 +89,6 @@
     &lt;/html&gt;</p>
     <br />So now what is the most important things for me to take note of so far?
     <br />IDs and Class seem to be a big one for me right now.
-    <br />
-	</div>
-	
+    <br /></div>
   </body>
 </html>
