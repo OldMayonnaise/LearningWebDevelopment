@@ -15,11 +15,14 @@
     <div id="topnav"></div>
     <div id="sideNav"></div>
     <div id="content">
-      Title:<input type="Text" name="postTitle" id="blogPost"/>
+      
 	  <br>
+	  
+	  <form action="PHPInsertBlogPost.php" id="blogPost" method="post">	      
+      Title:<input type="Text" name="postTitle" id="blogPost"/>
+	  <input type="submit" name="submit" />	  
+	  </form>
 	  <textarea rows="4" cols="50" name="postBody" form="blogPost">Enter text here...</textarea>
-	  <form action="PHPComparisonOperators.php" id="blogPost" method="post">	      
-      <input type="submit" name="submit" /></form>
 	  
 	  
     </div>

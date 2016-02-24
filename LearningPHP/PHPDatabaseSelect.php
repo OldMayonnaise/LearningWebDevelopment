@@ -11,7 +11,7 @@
       echo $db->lastErrorMsg();
    } else {
       echo "Opened database successfully\n";
-	  echo <br>;
+	  echo '<br>';
    }
 
    $sql =<<<EOF
