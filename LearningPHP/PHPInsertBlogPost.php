@@ -50,13 +50,20 @@ EOF;
     $sql =<<<EOF
       SELECT * from BLOGPOSTS;
 EOF;
-      $ret = $db->query($sql);
+
+	$pageContents;		
+	
+      $ret = $db->query($sql);	  
    while($row = $ret->fetchArray(SQLITE3_ASSOC) ){
       echo "ID = ". $row['ID'] . "\n";
-      echo "postTitle = ". $row['postTitle'] ."\n";
-      echo "postBody = ". $row['postBody'] ."\n";     
-	  echo '<br>';
-	  echo '<br>';
+	  
+      echo "postTitle = ". $row['postTitle'] ."\n";	  
+	  $postContents = "<h3>" . $row['postTitle'] . "</h3>";
+	  
+      echo "postBody = ". $row['postBody'] ."\n";    
+	  $postContents = $postContents . "<p>" . $row['postBody'] . "</p>";	  
+	  
+	  $pageContents = $pageContents . $postContents;
    }
    echo "Operation done successfully\n";
    
@@ -69,8 +76,14 @@ EOF;
     <meta name="generator"
     content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
     <title></title>
+	   <link rel="styleSheet" type="text/css" href="/CascadingStyleSheets/styleSheet.css" />
+
   </head>
   <body>
+  <div id="header"></div>
+    <div id="topnav"></div>
+    <div id="sideNav"></div>
+    <div id="content"><?php echo $pageContents;?></div>
     <br />
     <br />
     <a href="http://www.tutorialspoint.com/sqlite/sqlite_php.htm">http://www.tutorialspoint.com/sqlite/sqlite_php.htm</a>
