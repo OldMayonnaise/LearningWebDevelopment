@@ -22,7 +22,7 @@
       CREATE TABLE BLOGPOSTS
       (ID			INT		PRIMARY KEY,
       postTitle 	TEXT 	NOT NULL,
-      postBody		TEXT    NOT NULL);      
+      postBody		VARCHAR    NOT NULL);      
 EOF;
 
 	$ret = $db->exec($sql);
@@ -83,7 +83,13 @@ EOF;
   <div id="header"></div>
     <div id="topnav"></div>
     <div id="sideNav"></div>
-    <div id="content"><?php echo $pageContents;?></div>
+    <div id="content"><?php echo $pageContents;?>
+	<br>
+	<form action="PHPInsertBlogPost.php" id="blogPost" method="post">	      
+      Title:<input type="Text" name="postTitle" id="blogPost"/>
+	  <input type="submit" name="submit" />	  
+	  </form>
+	  <textarea rows="4" cols="50" name="postBody" form="blogPost">Enter text here...</textarea></div>
     <br />
     <br />
     <a href="http://www.tutorialspoint.com/sqlite/sqlite_php.htm">http://www.tutorialspoint.com/sqlite/sqlite_php.htm</a>
