@@ -3,6 +3,15 @@
 
         $postTitle = $_POST['postTitle'];
         $postBody = $_POST['postBody'];
+                
+                date_default_timezone_set('UTC');               
+                $dateUpdated = date('l F jS Y');
+                $dateCreated = date('l F jS Y');
+                
+                $author = 'author';
+                $category = 'category';
+                $tags = 'tags tags tags';
+                
 
    class MyDB extends SQLite3
    {
@@ -19,11 +28,21 @@
           echo '<br>';
    }
    
+   // use php datetime to store dates
+        // use an author string as a temp user
+        // use temp strings as tags
+        // use temp string as category
+        
+   
    $sql =<<<EOF
       CREATE TABLE BLOGPOSTS
-      (ID                       INT             PRIMARY KEY,
-      postTitle         TEXT    NOT NULL,
-      postBody          VARCHAR    NOT NULL);      
+      (ID           INT         PRIMARY KEY,     
+      postTitle         TEXT            NOT NULL,
+          postBody      VARCHAR         NOT NULL,
+          postDateCreated       TEXT    NOT NULL, 
+          postDateUpdated       TEXT    NOT NULL,
+          postCategory          TEXT    NOT NULL,
+          postAuthor            TEXT    NOT NULL);      
 EOF;
 
         $ret = $db->exec($sql);
@@ -32,12 +51,13 @@ EOF;
    } else {
       echo "Table created successfully\n";
           echo '<br>';
-   }
-  
+   }  
+   
+   // I need to have all values before I get here
    
    $sql =<<<EOF
-      INSERT INTO BLOGPOSTS (postTitle,postBody)
-      VALUES ('$postTitle', '$postBody');     
+      INSERT INTO BLOGPOSTS (postTitle,postBody,postDateCreated,postDateUpdated,postCategory,postAuthor)
+      VALUES ('$postTitle', '$postBody', '$dateCreated', '$dateUpdated', '$category', '$author');     
 EOF;
 
    $ret = $db->exec($sql);
@@ -55,19 +75,23 @@ EOF;
         $pageContents;          
         
       $ret = $db->query($sql);
-	  
-	  // to make this work I should add the posts to a collection then reverse it
+          
+          // to make this work I should add the posts to a collection then reverse it
     
    while($row = $ret->fetchArray(SQLITE3_ASSOC) ){
-      echo "ID = ". $row['ID'] . "\n";
+    
+        echo "ID = ". $row['ID'] . "\n";
           
-      echo "postTitle = ". $row['postTitle'] ."\n";       
-          $postContents = "<h3>" . $row['postTitle'] . "</h3>";
+    echo "postTitle = ". $row['postTitle'] ."\n";       
+                $postContents = "<h2>" . $row['postTitle'] . "</h2>";
+                  
+        echo "postDateCreated = ". $row['postDateUpdated'] ."\n";
+                $postContents = $postContents . "<h3>" . $row['postDateUpdated'] . "</h3>";
           
-      echo "postBody = ". $row['postBody'] ."\n";    
-          $postContents = $postContents . "<p>" . $row['postBody'] . "</p>";      
+    echo "postBody = ". $row['postBody'] ."\n";    
+                $postContents = $postContents . "<p>" . $row['postBody'] . "</p>";      
           
-          $pageContents = $pageContents . $postContents;
+        $pageContents = $pageContents . $postContents;
    }
    echo "Operation done successfully\n";
    
@@ -79,14 +103,17 @@ EOF;
     <meta name="generator"
     content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
     <title>Production Book and Notes</title>
-	<link rel="styleSheet" type="text/css" href="/CascadingStyleSheets/styleSheet.css" />
+    <link rel="styleSheet" type="text/css" href="/CascadingStyleSheets/styleSheet.css" />
   </head>
-  <body>
-    <div id="header"></div>
+  <body>  
+    <div id="header">
+      <h1>Production Book and Portfolio</h1>
+    </div>
+	
     <div id="topNav"></div>
-    <div id="leftSideNav"></div>
+    <div id="leftSideNav">Why does this not work?</div>
     <div id="content">
-      <br /><?php echo $pageContents;?>
+      <?php echo $pageContents;?>
       <form action="index.php" id="blogPost" method="post">Title: 
       <input type="text" name="postTitle" id="blogPost" /> 
       <input type="submit" name="submit" /></form>
@@ -95,5 +122,6 @@ EOF;
     <div id="rightSideNav"></div>
     <div id="bottomNav"></div>
     <div id="footer"></div>
+	
   </body>
 </html>

@@ -1,22 +1,21 @@
- body {
+html {
+	height:100%;
+}	
+ 
+body {
 	 margin:0px;
 	 padding:0px;
 	 font-family: tahoma;
-	}	
+	 min-height:100%;	 
+	 width:100%;
+	}
 	
 	h1{
 		font-size:48;
 		margin:0px;
-		//height:100px;
+		
 		padding:20px;
 	}
-	
-	/* h2{
-		//font-size:48;
-		margin:0px;
-		//height:100px;
-		padding-left:20px;
-	} */
 	
 	p {
 		width:800px;
@@ -25,44 +24,42 @@
 	ul {
 		list-style-type:none;
 		float:left;
-	}
+	}	
 	
-	/* ol {
-		line-style-type:"1";
-	} */
-	
-	// the following lines starting with a  is an ID
-	// this header is taking up too much space on the page
-	#header {
-		font-size:48;
-		height:100px;
-		//padding:20px;
-	}
+	#header {background-color: 999999;
+				position: absolute;				
+				width:100%;
+				top:0px;
+				height:100px;
+				/*margin:0px*/;
+				/* padding:10px; */}
 	
 	#topNav {background-color: 666666;
 				position: absolute;				
 				width:100%;
 				top:100px;
 				height:50px;
-				//margin:0px;
-				//padding:10px;}
-	
-	#sideNav {background-color: 999999;
-				position: absolute;				
-				top:150px;
-				width:250px;
-				height:100%;
-				//margin:20px;
-				//padding:20px;}
+				/* margin:0px; */
+				/* padding:10px; */}	
 	
 	#content {background-color: e5e5e5;
 				position: absolute;
 				top:150px;
 				left:250px;
-				width:100%;
-				height:100%;
-				//margin:0px;
+				width:100%;				
+				min-height:100%;
+				/* margin:0px; */
 				padding:20px;}
+				
+	#leftSideNav {background-color: 999999;
+				position: absolute;
+				top:150px;
+				float:left;
+				width:250px;				
+				min-height:100%;				
+				padding:20px;}
+				
+
 	
 		
 	a:hover {background-color: black;	
@@ -93,11 +90,11 @@
 	.codeBox { background:#424242;	
 		font-family: courier;
 		color:00FF00;
-		//color:#2E2E2E;
+		/* color:#2E2E2E; */
 		border: solid black 1px;
 		width: 600px;
 		position: relative;
 		padding:20px;
-		//height: 600px;		
+		/* height: 600px */;		
 	}	
 				

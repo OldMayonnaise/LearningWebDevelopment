@@ -10,12 +10,15 @@ body {
 	}
 
 #header {
+	position:absolute;
 	text-align:center;
 	font-family:tahoma;
 	//font-style:bolder;
 	font-size:48;
 	line-height:100px;
-	//position:absolute;
+	top:0px;
+	left:0px;
+	
 	background-color:CAC4CE;
 	height:100px;
 	width:100%;

@@ -9,6 +9,10 @@
             date_default_timezone_set('UTC');
             
             echo date('h:i:s:u a, l F jS Y e');
+			
+			echo'<br>';
+			
+			echo date('l F jS Y');
             
             /* Echos the date
     039                     h : 12 hr format
