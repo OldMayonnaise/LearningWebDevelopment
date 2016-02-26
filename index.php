@@ -1,6 +1,7 @@
 <?php
 
 
+
         $postTitle = $_POST['postTitle'];
         $postBody = $_POST['postBody'];
                 
@@ -89,7 +90,9 @@ EOF;
                 $postContents = $postContents . "<h3>" . $row['postDateUpdated'] . "</h3>";
           
     echo "postBody = ". $row['postBody'] ."\n";    
-                $postContents = $postContents . "<p>" . $row['postBody'] . "</p>";      
+                $postContents = $postContents . '<p>'. $row['postBody'] . "</p> "; 
+
+	 
           
         $pageContents = $pageContents . $postContents;
    }
@@ -106,22 +109,23 @@ EOF;
     <link rel="styleSheet" type="text/css" href="/CascadingStyleSheets/styleSheet.css" />
   </head>
   <body>  
-    <div id="header">
-      <h1>Production Book and Portfolio</h1>
-    </div>
-	
-    <div id="topNav"></div>
-    <div id="leftSideNav">Why does this not work?</div>
-    <div id="content">
-      <?php echo $pageContents;?>
-      <form action="index.php" id="blogPost" method="post">Title: 
-      <input type="text" name="postTitle" id="blogPost" /> 
-      <input type="submit" name="submit" /></form>
-      <textarea rows="4" cols="50" name="postBody" form="blogPost">Enter text here...</textarea>
-    </div>
-    <div id="rightSideNav"></div>
-    <div id="bottomNav"></div>
-    <div id="footer"></div>
+		<div id="header">
+		  <h1>Production Book and Portfolio</h1>
+		</div>
+		
+		<div id="topNav"></div>
+		<div id="leftSideNav">Why does this not work?</div>
+		<div id="content">
+		<a href="/learningPHP/indexPHP.html">deprecated index</a>
+		  <?php echo $pageContents;?>
+		  <form action="index.php" id="blogPost" method="post">Title: 
+		  <input type="text" name="postTitle" id="blogPost" /> 
+		  <input type="submit" name="submit" /></form>
+		  <textarea rows="4" cols="50" name="postBody" form="blogPost">Enter text here...</textarea>
+		</div>
+		<div id="rightSideNav"></div>
+		<div id="bottomNav"></div>
+		<div id="footer"></div>
 	
   </body>
 </html>

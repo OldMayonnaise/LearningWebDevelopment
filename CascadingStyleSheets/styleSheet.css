@@ -18,7 +18,9 @@ body {
 	}
 	
 	p {
+		border:solid 1px grey;		
 		width:800px;
+		padding:20px;
 	}
 	
 	ul {
@@ -51,7 +53,9 @@ body {
 				/* margin:0px; */
 				padding:20px;}
 				
-	#leftSideNav {background-color: 999999;
+	
+				
+	#leftSideNav {background-color: 666666;
 				position: absolute;
 				top:150px;
 				float:left;
@@ -66,7 +70,7 @@ body {
 			color: white;}
 			
 	.topNavLink	{
-		width: 150px;
+		/* width: 150px; */
 		padding-left: 20px;
 		padding-right:20px;
 		text-decoration:none;
