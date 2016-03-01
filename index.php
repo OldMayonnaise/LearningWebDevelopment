@@ -14,13 +14,14 @@
                 $tags = 'tags tags tags';
                 
 
-   class MyDB extends SQLite3
+   class MyDB extends SQLite3 // creates the database object that extends sqlite3
    {
-      function __construct()
+      function __construct() // this is actually a constructor
       {
-         $this->open('blog.db');
+         $this->open('blog.db'); 	// chooses the database to make the database object
       }
    }
+   
    $db = new MyDB();
    if(!$db){
       echo $db->lastErrorMsg();
@@ -38,12 +39,12 @@
    $sql =<<<EOF
       CREATE TABLE BLOGPOSTS
       (ID           INT         PRIMARY KEY,     
-      postTitle         TEXT            NOT NULL,
-          postBody      VARCHAR         NOT NULL,
-          postDateCreated       TEXT    NOT NULL, 
-          postDateUpdated       TEXT    NOT NULL,
-          postCategory          TEXT    NOT NULL,
-          postAuthor            TEXT    NOT NULL);      
+		postTitle         	TEXT    	 NOT NULL,
+        postBody      		VARCHAR	     NOT NULL,
+        postDateCreated     TEXT  		 NOT NULL, 
+        postDateUpdated     TEXT  		 NOT NULL,
+        postCategory        TEXT  		 NOT NULL,
+        postAuthor          TEXT  		 NOT NULL);      
 EOF;
 
         $ret = $db->exec($sql);
@@ -55,7 +56,7 @@ EOF;
    }  
    
    // I need to have all values before I get here
-   
+/*   
    $sql =<<<EOF
       INSERT INTO BLOGPOSTS (postTitle,postBody,postDateCreated,postDateUpdated,postCategory,postAuthor)
       VALUES ('$postTitle', '$postBody', '$dateCreated', '$dateUpdated', '$category', '$author');     
@@ -68,9 +69,10 @@ EOF;
       echo "Records created successfully\n";
           echo '<br>';
    }
-   
+  */
+  
     $sql =<<<EOF
-      SELECT * from BLOGPOSTS;
+      SELECT rowid, * from BLOGPOSTS;
 EOF;
 
         $pageContents;          
@@ -81,18 +83,16 @@ EOF;
     
    while($row = $ret->fetchArray(SQLITE3_ASSOC) ){
     
-        echo "ID = ". $row['ID'] . "\n";
+        echo "ID = ". $row['rowID'] . "\n";
           
     echo "postTitle = ". $row['postTitle'] ."\n";       
-                $postContents = "<h2>" . $row['postTitle'] . "</h2>";
+                $postContents = "<h2>" . $row['postTitle'] . " " . $row['rowID']."</h2>";
                   
         echo "postDateCreated = ". $row['postDateUpdated'] ."\n";
                 $postContents = $postContents . "<h3>" . $row['postDateUpdated'] . "</h3>";
           
     echo "postBody = ". $row['postBody'] ."\n";    
-                $postContents = $postContents . '<p>'. $row['postBody'] . "</p> "; 
-
-	 
+                $postContents = $postContents . '<p>'. $row['postBody'] . "</p>"; 	 
           
         $pageContents = $pageContents . $postContents;
    }
