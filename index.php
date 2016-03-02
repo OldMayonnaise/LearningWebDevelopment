@@ -1,104 +1,8 @@
 <?php
 
-
-
-        $postTitle = $_POST['postTitle'];
-        $postBody = $_POST['postBody'];
-                
-                date_default_timezone_set('UTC');               
-                $dateUpdated = date('l F jS Y');
-                $dateCreated = date('l F jS Y');
-                
-                $author = 'author';
-                $category = 'category';
-                $tags = 'tags tags tags';
-                
-
-   class MyDB extends SQLite3 // creates the database object that extends sqlite3
-   {
-      function __construct() // this is actually a constructor
-      {
-         $this->open('blog.db'); 	// chooses the database to make the database object
-      }
-   }
-   
-   $db = new MyDB();
-   if(!$db){
-      echo $db->lastErrorMsg();
-   } else {
-      echo "Opened database successfully\n";
-          echo '<br>';
-   }
-   
-   // use php datetime to store dates
-        // use an author string as a temp user
-        // use temp strings as tags
-        // use temp string as category
-        
-   
-   $sql =<<<EOF
-      CREATE TABLE BLOGPOSTS
-      (ID           INT         PRIMARY KEY,     
-		postTitle         	TEXT    	 NOT NULL,
-        postBody      		VARCHAR	     NOT NULL,
-        postDateCreated     TEXT  		 NOT NULL, 
-        postDateUpdated     TEXT  		 NOT NULL,
-        postCategory        TEXT  		 NOT NULL,
-        postAuthor          TEXT  		 NOT NULL);      
-EOF;
-
-        $ret = $db->exec($sql);
-   if(!$ret){
-      echo $db->lastErrorMsg();
-   } else {
-      echo "Table created successfully\n";
-          echo '<br>';
-   }  
-   
-   // I need to have all values before I get here
-/*   
-   $sql =<<<EOF
-      INSERT INTO BLOGPOSTS (postTitle,postBody,postDateCreated,postDateUpdated,postCategory,postAuthor)
-      VALUES ('$postTitle', '$postBody', '$dateCreated', '$dateUpdated', '$category', '$author');     
-EOF;
-
-   $ret = $db->exec($sql);
-   if(!$ret){
-      echo $db->lastErrorMsg();
-   } else {
-      echo "Records created successfully\n";
-          echo '<br>';
-   }
-  */
-  
-    $sql =<<<EOF
-      SELECT rowid, * from BLOGPOSTS;
-EOF;
-
-        $pageContents;          
-        
-      $ret = $db->query($sql);
-          
-          // to make this work I should add the posts to a collection then reverse it
-    
-   while($row = $ret->fetchArray(SQLITE3_ASSOC) ){
-    
-        echo "ID = ". $row['rowID'] . "\n";
-          
-    echo "postTitle = ". $row['postTitle'] ."\n";       
-                $postContents = "<h2>" . $row['postTitle'] . " " . $row['rowID']."</h2>";
-                  
-        echo "postDateCreated = ". $row['postDateUpdated'] ."\n";
-                $postContents = $postContents . "<h3>" . $row['postDateUpdated'] . "</h3>";
-          
-    echo "postBody = ". $row['postBody'] ."\n";    
-                $postContents = $postContents . '<p>'. $row['postBody'] . "</p>"; 	 
-          
-        $pageContents = $pageContents . $postContents;
-   }
-   echo "Operation done successfully\n";
-   
-   $db->close();
+	include 'databaseCRUD.php';
+	//db = $db = openDatabase();
+	//readDatabase($db); 
 
 ?>
 <html>
@@ -117,9 +21,9 @@ EOF;
 		<div id="leftSideNav">Why does this not work?</div>
 		<div id="content">
 		<a href="/learningPHP/indexPHP.html">deprecated index</a>
-		  <?php echo $pageContents;?>
-		  <form action="index.php" id="blogPost" method="post">Title: 
-		  <input type="text" name="postTitle" id="blogPost" /> 
+		  <?php	echo readDatabase($db);?>
+		  <form action="DBUpdate.php" id="blogPost" method="post">Title: 
+		  <input type="text" name="postTitle" id="blogPost" value="This Is The Title"/> 
 		  <input type="submit" name="submit" /></form>
 		  <textarea rows="4" cols="50" name="postBody" form="blogPost">Enter text here...</textarea>
 		</div>
