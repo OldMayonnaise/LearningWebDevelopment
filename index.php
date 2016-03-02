@@ -1,7 +1,7 @@
 <?php
 
 	include 'databaseCRUD.php';
-	//db = $db = openDatabase();
+	//$db = openDatabase();
 	//readDatabase($db); 
 
 ?>

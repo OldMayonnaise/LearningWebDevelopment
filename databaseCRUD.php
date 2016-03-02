@@ -79,10 +79,28 @@ EOF;
 	
 	$ret = $db->query($sql); // what is the datatype ret?
 	
+	$viewContent = "";
+	
 	while($row = $ret->fetchArray(SQLITE3_ASSOC) ){ // I believe this means while there is another row in the array
 		
 		// start html formatting the following lines
-			
+	$viewFormat =
+		'<h2>'.$row['postTitle'].'</h2>
+		<h3>'.$row['postCategory'].'</h3>		
+		<p>'.$row['postBody'].'</p>
+		<h4>'.$row['postAuthor'].'</h4>		
+		<h4>'.$row['postDateUpdated'].'</h4>		
+		<h4>'.$row['postTags'].'</h4>		
+		<form action="DBDelete.php" method="post">
+		<button name="rowID" type="submit" value="'.$row['rowid'].'">delete</button>
+		</form>		
+		ID = '.$row['rowid'].'<br><br>';		
+		
+		echo $viewFormat;
+		
+		//$viewContent = $viewContent + $viewFormat;
+		
+		/*
 		echo '<h2>'.$row['postTitle'].'</h2>'; 
 		echo  "<h3>".$row['postCategory']."</h3>";		
 		echo "<p>".$row['postBody'] ."</p>";  
@@ -95,7 +113,7 @@ EOF;
 			</form>';
 		
 		echo "ID = ". $row['rowid'] . "<br>";
-		
+		*/
 		//echo "postDateCreated = ".$row['postDateUpdated'] ."<br>"; 
 		
 		/*
@@ -112,8 +130,8 @@ EOF;
 		$blogPosts[$row['rowid']] = $ret; // this adds the post array to the blogposts array with the post as the pk	
 		  
    }
-   
-   return $blogPosts;
+   return $viewContent;
+   //return $blogPosts;
    
    echo "Operation done successfully\n";
    

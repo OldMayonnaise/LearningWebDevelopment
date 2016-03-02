@@ -14,6 +14,10 @@
 	//$db = openDatabase(); // not sure why I dont need this - I am apparently opening this db somewhere else
 	
 	updateDatabase($db, $postTitle, $postBody, $dateUpdated, $dateCreated, $author, $category, $category, $tags);
+	
+	header("Location:index.php");
+	  
+	exit();
 
 
 ?>
