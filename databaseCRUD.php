@@ -85,7 +85,7 @@ EOF;
 		
 		// start html formatting the following lines
 	$viewFormat =
-		'<h2>'.$row['postTitle'].'</h2>
+		'<div id="post"><h2>'.$row['postTitle'].'</h2>
 		<h3>'.$row['postCategory'].'</h3>		
 		<p>'.$row['postBody'].'</p>
 		<h4>'.$row['postAuthor'].'</h4>		
@@ -94,11 +94,11 @@ EOF;
 		<form action="DBDelete.php" method="post">
 		<button name="rowID" type="submit" value="'.$row['rowid'].'">delete</button>
 		</form>		
-		ID = '.$row['rowid'].'<br><br>';		
+		ID = '.$row['rowid'].'</div><br><br>';		
 		
-		echo $viewFormat;
+		//echo $viewFormat;
 		
-		//$viewContent = $viewContent + $viewFormat;
+		$viewContent = $viewContent . $viewFormat;
 		
 		/*
 		echo '<h2>'.$row['postTitle'].'</h2>'; 

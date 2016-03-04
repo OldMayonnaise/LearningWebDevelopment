@@ -1,0 +1,133 @@
+html {
+	height:100%;
+	background-color:041F3C;
+}
+
+body {
+	min-height:100%;
+	background-color:041F3C;
+	font-family:tahoma;
+	color:BB7810;
+}
+
+h1{
+	margin:0px;
+	line-height:50px;
+}
+
+#container {
+	/* position:absolute; */	
+	top:0px;
+	left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header{
+	left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+	position:relative;
+	height:50px;
+	width:1000px;
+	background-color:0A2E56;
+	border:solid #835105 1px;
+	padding:5px;
+	margin-top:5px;
+}
+
+#topNav{
+	left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+	position:relative;
+	height:20px;
+	width:1000px;
+	background-color:0A2E56;
+	border:solid #835105 1px;
+	padding:5px;
+	margin-top:5px;
+}
+
+#content {    
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+	width:1010px;	
+	overflow:hidden; /* this line was key in making the div adjust to content */
+	background-color:0A2E56;
+	/* border:solid black 1px;
+	padding:5px;*/
+	margin-top:5px;
+}
+
+#leftSideNav{
+	width:185px;
+	/* min-height:100%; */
+	float:left;
+	background-color:0A2E56;
+	border:solid #835105 1px;
+	padding:5px;
+}
+
+#postDiv{
+	display:none;
+	display:inline-block;	
+	width:785px;
+	/* height:100%; */
+	float:right;
+	background-color:0A2E56;
+	/* border:solid #835105 1px; */
+	/* overflow:auto; */
+	padding:5px;
+}
+
+#post{
+	display:none;
+	display:inline-block;	
+	width:785px;
+	/* height:100%; */
+	float:right;
+	background-color:0A2E56;
+	border:solid #835105 1px;
+	/* overflow:auto; */
+	padding:5px;
+}
+
+#rightSideNav{
+	display:none;
+}
+
+#bottomNav{
+	left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+	position:relative;
+	height:50px;
+	width:1000px;
+	background-color:0A2E56;
+	border:solid #835105 1px;
+	padding:5px;
+	margin-top:5px;
+}
+
+#footer{
+	left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+	position:relative;
+	height:100px;
+	width:1000px;
+	background-color:0A2E56;
+	border:solid #835105 1px;
+	padding:5px;
+	margin-top:5px;
+}
+
+
