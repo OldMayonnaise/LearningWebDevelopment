@@ -19,7 +19,7 @@
 	//createTable($db);
 	//updateDatabase($db, $postTitle, $postBody, $dateUpdated, $dateCreated, $author, $category, $category, $tags);
 	readDatabase($db);	
-
+/* 
 function openDatabase(){
 	
 	class MyDB extends SQLite3 // creates the database object that extends sqlite3
@@ -40,7 +40,7 @@ function openDatabase(){
    
    return $db;
 }
-
+ */
 /*
 * creates table within the database function
 */
@@ -67,7 +67,7 @@ EOF;
    }  
 	
 }
-
+/* 
 function readDatabase($db){
 	
 	$sql =<<<EOF
@@ -96,50 +96,20 @@ EOF;
 		</form>		
 		ID = '.$row['rowid'].'</div><br><br>';		
 		
-		//echo $viewFormat;
-		
-		$viewContent = $viewContent . $viewFormat;
-		
-		/*
-		echo '<h2>'.$row['postTitle'].'</h2>'; 
-		echo  "<h3>".$row['postCategory']."</h3>";		
-		echo "<p>".$row['postBody'] ."</p>";  
-		echo "<h4>".$row['postAuthor'] ."</h4>"; 		
-		echo  "<h4>".$row['postDateUpdated']."</h4>";		
-		echo  "<h4>".$row['postTags']."</h4>";
-		
-		echo '<form action="DBDelete.php" method="post">
-			<button name="rowID" type="submit" value='.$row['rowid'].'>delete</button>
-			</form>';
-		
-		echo "ID = ". $row['rowid'] . "<br>";
-		*/
-		//echo "postDateCreated = ".$row['postDateUpdated'] ."<br>"; 
-		
-		/*
-		// start html formatting the following lines
-		echo "ID = ". $row['rowid'] . "<br>";
-		echo "postTitle = ".$row['postTitle'] ."<br>";  
-		echo "postBody = ".$row['postBody'] ."<br>";  
-		echo "postAuthor = ".$row['postAuthor'] ."<br>";  
-		echo "postDateCreated = ".$row['postDateUpdated'] ."<br>"; 
-		echo  "postDateUpdated = ".$row['postDateUpdated']."<br>";
-		echo  "postCategory = ".$row['postCategory']."<br>";
-		echo  "postTags = ".$row['postTags']."<br>";
-		*/
+		$viewContent = $viewContent . $viewFormat;	
+	
 		$blogPosts[$row['rowid']] = $ret; // this adds the post array to the blogposts array with the post as the pk	
 		  
    }
-   return $viewContent;
-   //return $blogPosts;
+   return $viewContent;   
    
    echo "Operation done successfully\n";
    
    $db->close();
    
 }
-
-function updateDatabase($db, $postTitle, $postBody, $dateUpdated, $dateCreated, $author, $category, $category, $tags){
+ */
+/* function updateDatabase($db, $postTitle, $postBody, $dateUpdated, $dateCreated, $author, $category, $category, $tags){
 	
 	 $sql =<<<EOF
       INSERT INTO BLOGPOSTS (postTitle,postBody,postAuthor,postDateCreated,postDateUpdated,postCategory,postTags)
@@ -154,7 +124,8 @@ EOF;
           echo '<br>';
    }
 }
-
+*/
+/* 
 function deleteData($db, $rowID){
 	 $sql =<<<EOF
       DELETE from BLOGPOSTS where rowID = $rowID;
@@ -171,7 +142,7 @@ EOF;
    $db->close();
 
 }
-
+ */
 //$db->close();
 
 ?>

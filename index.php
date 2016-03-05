@@ -1,6 +1,7 @@
 <?php
-
-	include 'databaseCRUD.php';
+	
+	include 'DBRead.php';
+	//include 'databaseCRUD.php';
 	//$db = openDatabase();
 	//readDatabase($db); 
 
@@ -19,7 +20,7 @@
 			<div id="content">
 			
 				<div id="leftSideNav">left side nav</div>		
-				<div id="postDiv"><?php	echo readDatabase($db);?>
+				<div id="postDiv"><?php	echo readDatabase();?>
 				<form action="DBUpdate.php" id="blogPost" method="post">Title: 
 				<input type="text" name="postTitle" id="blogPost" value="This Is The Title"/> 
 				<input type="submit" name="submit" /></form>
