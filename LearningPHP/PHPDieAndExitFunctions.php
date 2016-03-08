@@ -1,10 +1,16 @@
 <?php
 
 	echo "hello ";
+		
+	$firstInt = 1;
+	$secondInt= 2;
 	
-	die('die and exit funtions stop scripts');
-	//exit();
+	if($firstInt == $secondInt){
+		echo 'ints are the same';
+	} else {
+		die('die and exit funtions stop scripts');
+	}
 	
-	echo "world ";
-
+	//exit('die and exit funtions stop scripts');	
+	// die and exit are pretty much the same
 ?>
