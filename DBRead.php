@@ -1,16 +1,16 @@
 <?php
 
 include 'DAO.php';
-//$db = openDatabase(); // this opens the database from the DAO.php
-$blogPosts = array();// this is the array that I will store the blog posts in
-
+$db = openDatabase(); // this opens the database from the DAO.php
+//$blogPosts = array();// this is the array that I will store the blog posts in
+$blogPosts = readDatabase();
 
 /*
 *	read blog posts from database
 */
 function readDatabase(){
 	
-	$db = openDatabase(); // database needs to be openen within the scope of the function if funtion is being called from outside of the file
+	global $db; // database needs to be openen within the scope of the function if funtion is being called from outside of the file
 	
 	$sql =<<<EOF
 	SELECT rowid, * from BLOGPOSTS;
@@ -23,8 +23,10 @@ EOF;
 		$blogPosts[$row['rowid']] = $row; // this adds the post array to the blogposts array with the post as the pk			  
    }   
    
+   //print_r($blogPosts);
    echo "Operation done successfully\n";   
-   $db->close();  
+   $db->close();
+	return $blogPosts;
 }
 
 /*
@@ -37,12 +39,13 @@ function getBlogPostsArray(){
 /*
 *	output blogPosts array to HTML
 */
-function readBlogPostsArray(){	
+function readBlogPostsArray(){
 	
+	global $blogPosts; // <- this was really important - allows me to access blogposts outside of function
 	$viewContent = "";
-	
-	foreach($blogPosts as $row){		
-	// start html formatting the following lines
+	//print_r($blogPosts);	
+
+	foreach($blogPosts as $row){
 	$viewFormat =
 		'<div id="post"><h2>'.$row['postCategory'].' - '.$row['postTitle'].'</h2>						
 		<h4>'.$row['postDateUpdated'].' - '.$row['postAuthor'].'</h4>	
@@ -55,10 +58,10 @@ function readBlogPostsArray(){
 		<button name="rowID" type="submit" value="'.$row['rowid'].'">delete</button>
 		</form>	
 		ID = '.$row['rowid'].'</div><br><br>';	
-		$viewContent = $viewContent . $viewFormat;
-		return $viewContent;				
+		$viewContent = $viewContent . $viewFormat;						
 	}
-	
+	//echo $viewContent;
+	return $viewContent;
 }
 
 

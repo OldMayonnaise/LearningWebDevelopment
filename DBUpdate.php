@@ -34,7 +34,7 @@ $db->close(); // close the database
 header("Location:index.php"); // where to go next
 exit();
 
-editBlogPost($rowId){ // consider accessing the row via rowid and postTitle
+function editBlogPost($rowId){ // consider accessing the row via rowid and postTitle
 
 // here we just need to get one post info
 // can I get a class object?
