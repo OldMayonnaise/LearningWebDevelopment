@@ -1,7 +1,29 @@
 <?php
 	
-	include 'DBRead.php';
-	readBlogPostsArray();
+	//include 'DBRead.php';
+	
+	include 'DAO.php';
+	$db = openDatabase(); // open the database from the DAO.php
+	
+	//updateData($db, $rowID); <- put this in the body
+	
+	function updateData($db, $rowID){
+		$sql =<<<EOF
+		SELECT from BLOGPOSTS where rowID = $rowID;
+EOF;
+		$ret = $db->exec($sql); // executes the SQL query
+		if(!$ret){
+			echo $db->lastErrorMsg();
+		} else {
+			echo $db->changes(), " Record deleted successfully\n";
+		}
+		echo "Operation done successfully\n";
+		
+		
+	}
+	$db->close(); // close the database
+	header("Location:index.php"); // where to go next  
+	exit();
 
 ?>
 <html>
@@ -17,7 +39,7 @@
 		<div id="topNav">top nav</div>
 			<div id="content">	
 				<div id="leftSideNav">left side nav</div>		
-				<div id="postDiv"><?php	echo readBlogPostsArray();?>
+				<div id="postDiv"><?php	echo readDatabase();?>
 				<!-- php update form here -->
 				<form action="DBUpdate.php" id="blogPost" method="post">Title: 
 				<input type="text" name="postTitle" id="blogPost" value="This Is The Title"/> 

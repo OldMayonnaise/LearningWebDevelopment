@@ -4,27 +4,86 @@ include 'DAO.php';
 //$db = openDatabase(); // this opens the database from the DAO.php
 $blogPosts = array();// this is the array that I will store the blog posts in
 
+
+/*
+*	read blog posts from database
+*/
 function readDatabase(){
 	
-	$db = openDatabase(); //
+	$db = openDatabase(); // database needs to be openen within the scope of the function if funtion is being called from outside of the file
 	
 	$sql =<<<EOF
 	SELECT rowid, * from BLOGPOSTS;
 EOF;
 
-	$ret = $db->query($sql); // what is the datatype ret?
+	$ret = $db->query($sql); // what is the datatype ret? object of type SQLite3Result	
+		
+	while($row = $ret->fetchArray(SQLITE3_ASSOC) ){ // I believe this means while there is another row in the array
 	
-	$viewContent = ""; // see if this works without this variable
+		$blogPosts[$row['rowid']] = $row; // this adds the post array to the blogposts array with the post as the pk			  
+   }   
+   
+   echo "Operation done successfully\n";   
+   $db->close();  
+}
+
+/*
+*	return blogPosts array object
+*/
+function getBlogPostsArray(){
+	return $blogPosts;
+}
+
+/*
+*	output blogPosts array to HTML
+*/
+function readBlogPostsArray(){	
+	
+	$viewContent = "";
+	
+	foreach($blogPosts as $row){		
+	// start html formatting the following lines
+	$viewFormat =
+		'<div id="post"><h2>'.$row['postCategory'].' - '.$row['postTitle'].'</h2>						
+		<h4>'.$row['postDateUpdated'].' - '.$row['postAuthor'].'</h4>	
+		<p>'.$row['postBody'].'</p>			
+		<h4>'.$row['postTags'].'</h4>		
+		<form action="DBUpdatePost.php" method="post">
+		<button name="rowID" type="submit" value="'.$row['rowid'].'">Update</button>
+		</form>	
+		<form action="DBDelete.php" method="post">
+		<button name="rowID" type="submit" value="'.$row['rowid'].'">delete</button>
+		</form>	
+		ID = '.$row['rowid'].'</div><br><br>';	
+		$viewContent = $viewContent . $viewFormat;
+		return $viewContent;				
+	}
+	
+}
+
+
+
+/* function updatePost($rowid){
 	
 	while($row = $ret->fetchArray(SQLITE3_ASSOC) ){ // I believe this means while there is another row in the array
 		
+		if($rowid==$row['rowid']){
+			
+		<form action="DBUpdate.php" id="blogPost" method="post">Title: 
+				<input type="text" name="postTitle" id="blogPost" value="This Is The Title"/> 
+				<input type="submit" name="submit" /></form>
+				<textarea rows="4" cols="50" name="postBody" form="blogPost">Enter text here...</textarea>
+		
+		}
+		
+		echo $updateForm;
+		//return $updateForm;
+		
 		// start html formatting the following lines
 	$viewFormat =
-		'<div id="post"><h2>'.$row['postTitle'].'</h2>
-		<h3>'.$row['postCategory'].'</h3>		
-		<p>'.$row['postBody'].'</p>
-		<h4>'.$row['postAuthor'].'</h4>		
-		<h4>'.$row['postDateUpdated'].'</h4>		
+		'<div id="post"><h2>'.$row['postCategory'].' - '.$row['postTitle'].'</h2>						
+		<h4>'.$row['postDateUpdated'].' - '.$row['postAuthor'].'</h4>	
+		<p>'.$row['postBody'].'</p>			
 		<h4>'.$row['postTags'].'</h4>		
 		<form action="DBDelete.php" method="post">
 		<button name="rowID" type="submit" value="'.$row['rowid'].'">delete</button>
@@ -36,11 +95,6 @@ EOF;
 		$blogPosts[$row['rowid']] = $ret; // this adds the post array to the blogposts array with the post as the pk	
 		  
    }
-   return $viewContent;   
-   
-   echo "Operation done successfully\n";
-   
-   $db->close();
-   
-}
+} */
+
 ?>

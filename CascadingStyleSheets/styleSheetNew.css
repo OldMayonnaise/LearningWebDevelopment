@@ -10,9 +10,10 @@ body {
 	color:BB7810;
 }
 
-h1{
+h1,h2,h3,h4,p{
 	margin:0px;
-	line-height:50px;
+	padding:5px;
+	/* line-height:50px; */
 }
 
 #container {
@@ -77,13 +78,13 @@ h1{
 #postDiv{
 	display:none;
 	display:inline-block;	
-	width:785px;
+	width:790px;
 	/* height:100%; */
 	float:right;
 	background-color:0A2E56;
 	/* border:solid #835105 1px; */
 	/* overflow:auto; */
-	padding:5px;
+	/* padding:5px; */
 }
 
 #post{
@@ -95,7 +96,8 @@ h1{
 	background-color:0A2E56;
 	border:solid #835105 1px;
 	/* overflow:auto; */
-	padding:5px;
+	padding:10px;
+	margin-bottom:5px;
 }
 
 #rightSideNav{
@@ -129,5 +131,10 @@ h1{
 	padding:5px;
 	margin-top:5px;
 }
+
+/* .post {
+	color:yellow;	
+	display:inline
+} */
 
 
