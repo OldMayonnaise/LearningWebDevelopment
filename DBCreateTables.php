@@ -30,9 +30,10 @@ EOF;
 function createCategoryTable($db){
 	
 	   $sql =<<<EOF
-      CREATE TABLE BLOGPOSTS
+      CREATE TABLE CATERGORIES
 		(categoryID           	INT          PRIMARY KEY,
-		categoryName         	TEXT    	 NOT NULL);      
+		categoryName         	TEXT    	 NOT NULL
+		categoryParent			TEXT);      
 EOF;
 
         $ret = $db->exec($sql);

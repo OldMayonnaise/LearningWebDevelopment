@@ -29,7 +29,8 @@
 		<div id="bottomNav">bottom nav</div>
 		<div id="footer">footer</div>
 		</div>
-		<a href="/learningPHP/indexPHP.html">deprecated index</a>
+		<a href="/learningPHP/indexPHP.html">deprecated index</a><br>
+		<a href="/indexHome.php">new index</a>
 	
   </body>
 </html>
