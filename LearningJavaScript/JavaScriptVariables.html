@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta name="generator"
+    content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>JavaScript Variables</title>
+  </head>
+  <body>
+  <script type="text/javascript">
+  // how OO is javascript
+  var newString = "this variable is a string";
+  var newInt = 23;
+  var newFloat = 22.22414;
+  var newDecimal = 33.55;
+  var newSum = newDecimal + newFloat;
+  var escapeCharacters = "backslashes are \"escaped characters\" \\ ";
+  var concatenatedString = newString + escapeCharacters;
+  
+  
+  var newBool = true;
+  
+  if (newBool == true){
+	document.write("bool is true");
+  } else {
+	document.write("bool is false");
+  }
+  
+  document.write("<br>"  + newSum);
+  //document.write("<br>");
+  document.write("<br>"  + newString); // just learned that
+  document.write("<br>");
+  document.write(escapeCharacters);
+  document.write("<br>");
+  document.write(concatenatedString);
+  </script>
+  </body>
+</html>

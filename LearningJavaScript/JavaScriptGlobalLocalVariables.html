@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta name="generator"
+    content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title></title>
+  </head>
+  <body>
+  
+  <script type="text/javascript">
+  
+  var firstString = "<br>this string is a global variable";
+  
+  
+  function displayString(){
+	var secondString = "<br>this string is a local variable";
+	document.write(firstString);
+	document.write(secondString);
+  }
+  
+  displayString();
+  
+  document.write(firstString);
+  document.write(secondString); // the local variable will not work 
+  
+  
+  
+  </script>
+  
+  </body>
+</html>

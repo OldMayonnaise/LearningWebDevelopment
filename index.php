@@ -4,6 +4,7 @@
 	readBlogPostsArray();
 
 ?>
+
 <html>
   <head>
     <meta name="generator"
@@ -33,3 +34,6 @@
 	
   </body>
 </html>
+
+
+

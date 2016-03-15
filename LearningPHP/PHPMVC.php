@@ -5,7 +5,7 @@ $controller = new Controller($model);
 $view = new View($controller, $model);
 
 if (isset($_GET['action']) && !empty($_GET['action'])) {
-    $controller->{$_GET['action']}();
+    $controller->{$_GET['action']}(); // '->' is a scope accessor, this is how we are getting the method within the same page
 }
 
 echo $view->output();
@@ -32,7 +32,7 @@ class View
     }
 
     public function output() {
-        return '<p><a href="phpmvc.php?action=clicked">' . $this->model->string . "</a></p>"; // <-- action clicked - calls the clicked() function in controller
+        return '<p><a href="phpmvc.php? action=clicked">' . $this->model->string . "</a></p>"; // <-- action clicked - calls the clicked() function in controller
     }
 }
 

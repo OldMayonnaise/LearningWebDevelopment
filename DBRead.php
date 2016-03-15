@@ -51,7 +51,7 @@ function readBlogPostsArray(){
 		<h4>'.$row['postDateUpdated'].' - '.$row['postAuthor'].'</h4>	
 		<p>'.$row['postBody'].'</p>			
 		<h4>'.$row['postTags'].'</h4>		
-		<form action="DBUpdatePost.php" method="post">
+		<form action="ViewHTMLEditPost.php" method="post">
 		<button name="rowID" type="submit" value="'.$row['rowid'].'">Update</button>
 		</form>	
 		<form action="DBDelete.php" method="post">

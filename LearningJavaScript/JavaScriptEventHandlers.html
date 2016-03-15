@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta name="generator"
+    content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>Javascript Event Handlers</title>
+  </head>
+  <body onload="alert('your page is dones loading');" onUnload="alert('you are about to leave the page');">
+  
+  <form>
+  <input type="button" value="call alert" onclick="alert('This is an alert box');alert('string alerts together')">
+  <input type="button" value="call function" onclick="callFunction()">
+  </form>
+  
+  <a href="javascriptfunctions.html" onmouseover="alert('you moused over the link');">test test test</a>
+  <br>
+  <table width='600px' height='600px' border='1px' onmouseout="alert('you moused over the table');">
+  <tr><td>test test test</td></tr>
+  
+ </table>
+  
+  <script type="text/javascript">
+  
+  // in this case the onMouseOver, onClick, Onload, OnMouseOut are the events
+  
+  function callFunction(){
+	document.write("testing this out");
+  }
+  </script>
+  
+  </body>
+</html>
