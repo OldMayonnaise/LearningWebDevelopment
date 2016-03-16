@@ -1,57 +1,46 @@
 <?php
 	
-	//include 'DBRead.php';
+	//include 'index.php';
+	include 'DBRead.php';
+	$blogPostRowId = $_GET['blogPostRowId'];
+	//$blogPost = getBlogPost($blogPostRowId);
+	$view = new UpdatePostView();
 	
-	include 'DAO.php';
-	$db = openDatabase(); // open the database from the DAO.php
-	
-	//updateData($db, $rowID); <- put this in the body
-	
-	function updateData($db, $rowID){
-		$sql =<<<EOF
-		SELECT from BLOGPOSTS where rowID = $rowID;
-EOF;
-		$ret = $db->exec($sql); // executes the SQL query
-		if(!$ret){
-			echo $db->lastErrorMsg();
-		} else {
-			echo $db->changes(), " Record deleted successfully\n";
+Class UpdatePostView extends View
+{	
+	function getPostDiv(){
+	global $blogPostRowId;
+	$blogPost = getBlogPost($blogPostRowId);
+	$viewContent = "";
+	$viewFormat =
+		'<div id="post"><h2>'.$blogPost['postCategory'].' - '.$blogPost['postTitle'].'</h2>						
+		<h4>'.$blogPost['postDateUpdated'].' - '.$blogPost['postAuthor'].'</h4>	
+		<p>'.$blogPost['postBody'].'</p>			
+		<h4>'.$blogPost['postTags'].'</h4>		
+		<form action="DBUpdatePost.php" method="post">
+		<button name="rowID" type="submit" value="'.$blogPost['rowid'].'">Update</button>
+		</form>	
+		<form action="DBDelete.php" method="post">
+		<button name="rowID" type="submit" value="'.$blogPost['rowid'].'">delete</button>
+		</form>	
+		ID = '.$blogPost['rowid'].'</div><br><br>';	
+		$viewContent = $viewContent . $viewFormat;	
+
+		global $categoriesArray;
+		$categoryDropDown = '<select name="categoryID">';
+		foreach($categoriesArray as $element){
+			$categoryDropDown = $categoryDropDown . '<option value="'.$element['rowid'].'">'.$element['categoryName'].'</option>';
 		}
-		echo "Operation done successfully\n";
-		
-		
-	}
-	$db->close(); // close the database
-	header("Location:index.php"); // where to go next  
-	exit();
+		$categoryDropDown = $categoryDropDown . '</select>';		
+	
+		$viewContent = $viewContent.'<form action="DBUpdate.php" id="blogPost" method="post">Title: 
+			<input type="text" name="postTitle" id="blogPost" value="'.$blogPost['postTitle'].'"/> 
+			<input type="submit" name="submit" />'.$categoryDropDown.'</form>			
+			<textarea rows="4" cols="50" name="postBody" form="blogPost">'.$blogPost['postBody'].'</textarea>';
+	//echo $viewContent;
+	return $viewContent;	
+}	
+}
 
 ?>
-<html>
-  <head>
-    <meta name="generator"
-    content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
-    <title>Production Book and Notes</title>
-    <link rel="styleSheet" type="text/css" href="/CascadingStyleSheets/styleSheetnew.css" />
-  </head>
-  <body>
-		<div id="container">
-		<div id="header"><h1>Production Book and Portfolio</h1></div>		
-		<div id="topNav">top nav</div>
-			<div id="content">	
-				<div id="leftSideNav">left side nav</div>		
-				<div id="postDiv"><?php	echo readDatabase();?>
-				<!-- php update form here -->
-				<form action="DBUpdate.php" id="blogPost" method="post">Title: 
-				<input type="text" name="postTitle" id="blogPost" value="This Is The Title"/> 
-				<input type="submit" name="submit" /></form>
-				<textarea rows="4" cols="50" name="postBody" form="blogPost">Enter text here...</textarea></div>
-				<div id="rightSideNav">right side nav</div>											
-			</div>
-		
-		<div id="bottomNav">bottom nav</div>
-		<div id="footer">footer</div>
-		</div>
-		<a href="/learningPHP/indexPHP.html">deprecated index</a>
-	
-  </body>
-</html>
+

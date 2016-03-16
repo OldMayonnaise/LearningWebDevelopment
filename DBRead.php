@@ -26,11 +26,12 @@ EOF;
 /*
 *	return single blogPost assosiative array object
 */
-function getBlogPost($blogPost){
+function getBlogPost($blogPostRowId){
 	global $db; // database needs to be openen within the scope of the function if funtion is being called from outside of the file	
 	$sql =<<<EOF
-	SELECT rowid, * from BLOGPOSTS Where $blogPost = rowID;
+	SELECT rowid, * from BLOGPOSTS Where $blogPostRowId = rowid;
 EOF;
+echo $sql;
 	$ret = $db->query($sql); // what is the datatype ret? object of type SQLite3Result			
 	$blogPost = $ret->fetchArray(SQLITE3_ASSOC);	
 	//print_r($blogPost);
@@ -39,7 +40,10 @@ EOF;
 	return $blogPost;
 }
 
-function getCategories(){
+/*
+*	return single categories assosiative array object
+*/
+function getCategoriesArray(){
 	global $db;
 	$sql =<<<EOF
 	SELECT rowid, * from categories;

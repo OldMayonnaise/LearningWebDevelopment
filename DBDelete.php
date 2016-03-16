@@ -20,7 +20,7 @@ EOF;
 		echo "Operation done successfully\n";
 	}
 	$db->close(); // close the database
-	header("Location:index.php"); // where to go next  
+	header("Location:indexHome.php"); // where to go next  
 	exit();
 	
 

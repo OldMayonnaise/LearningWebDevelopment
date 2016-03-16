@@ -13,7 +13,7 @@ function createBlogpostsTable($db){
 		postAuthor          TEXT  		 NOT NULL,
         postDateCreated     TEXT  		 NOT NULL, 
         postDateUpdated     TEXT  		 NOT NULL,
-        postCategory        TEXT  		 NOT NULL,
+        postCategoryID      INT  		 NOT NULL,
         postTags         	TEXT  		 NOT NULL);      
 EOF;
 
@@ -33,7 +33,7 @@ function createCategoryTable($db){
       CREATE TABLE CATERGORIES
 		(categoryID           	INT          PRIMARY KEY,
 		categoryName         	TEXT    	 NOT NULL
-		categoryParent			TEXT);      
+		categoryParent			INT);      
 EOF;
 
         $ret = $db->exec($sql);

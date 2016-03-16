@@ -22,4 +22,8 @@ function openDatabase(){
 	return $db; // returns database object
 }
 
+function closeDatabase($db){
+	 $db->close();
+};
+
 ?>
