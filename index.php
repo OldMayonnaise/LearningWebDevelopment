@@ -1,10 +1,9 @@
-<?php
-	
-	include 'DBRead.php';
-	readBlogPostsArray();
 
+<<<<<<< HEAD
 ?>
 
+=======
+>>>>>>> workingfromhome
 <html>
   <head>
     <meta name="generator"
@@ -15,20 +14,14 @@
   <body>
 		<div id="container">
 		<div id="header"><h1>Production Book and Portfolio</h1></div>		
-		<div id="topNav">top nav</div>
+		<div id="topNav"><?php echo getTopNavDiv();?></div>
 			<div id="content">	
-				<div id="leftSideNav">left side nav</div>		
-				<div id="postDiv"><?php	echo readBlogPostsArray();?>
-				<!-- php update form here -->
-				<form action="DBUpdate.php" id="blogPost" method="post">Title: 
-				<input type="text" name="postTitle" id="blogPost" value="This Is The Title"/> 
-				<input type="submit" name="submit" /></form>
-				<textarea rows="4" cols="50" name="postBody" form="blogPost">Enter text here...</textarea></div>
+				<div id="leftSideNav"><?php	echo getLeftSideNavDiv();?></div>		
+				<div id="postDiv"><?php	echo getPostDiv();?></div>
 				<div id="rightSideNav">right side nav</div>											
-			</div>
-		
-		<div id="bottomNav">bottom nav</div>
-		<div id="footer">footer</div>
+			</div>		
+			<div id="bottomNav">bottom nav</div>
+			<div id="footer">footer</div>
 		</div>
 		<a href="/learningPHP/indexPHP.html">deprecated index</a>
 	

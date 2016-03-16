@@ -9,16 +9,16 @@ date_default_timezone_set('UTC');
 $dateUpdated = date('l F jS Y');
 $dateCreated = date('l F jS Y');
 $author = 'author';
-$category = 'category';
+$categoryID = $_POST['categoryID']; // I need to make these tables again - parentCategory that is an int
 $tags = 'tags tags tags';	
 	
-updateDatabase($db, $postTitle, $postBody, $dateUpdated, $dateCreated, $author, $category, $category, $tags);
+updateDatabase($db, $postTitle, $postBody, $dateUpdated, $dateCreated, $author, $categoryID, $tags);
 
-function updateDatabase($db, $postTitle, $postBody, $dateUpdated, $dateCreated, $author, $category, $category, $tags){
+function updateDatabase($db, $postTitle, $postBody, $dateUpdated, $dateCreated, $author, $categoryID, $tags){
 	
 	$sql =<<<EOF
 	INSERT INTO BLOGPOSTS (postTitle,postBody,postAuthor,postDateCreated,postDateUpdated,postCategory,postTags)
-	VALUES ('$postTitle', '$postBody', '$author', '$dateCreated', '$dateUpdated', '$category', '$tags' );     
+	VALUES ('$postTitle', '$postBody', '$author', '$dateCreated', '$dateUpdated', '$categoryID', '$tags' );     
 EOF;
 
 	$ret = $db->exec($sql); // executes the SQL statement
@@ -31,7 +31,7 @@ EOF;
 }
 	
 $db->close(); // close the database
-header("Location:index.php"); // where to go next
+header("Location:indexHome.php"); // where to go next
 exit();
 
 function editBlogPost($rowId){ // consider accessing the row via rowid and postTitle
