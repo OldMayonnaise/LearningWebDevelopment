@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <meta name="generator"
+    content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title></title>
+  </head>
+  <body>
+  
+  <script type="text/javascript"> 
+  
+  start();
+  
+  function start(){
+	doFirst();
+	doSecond();  
+  }
+  
+  function doFirst(){
+	document.write("This is the first function");
+  }
+  
+  function doSecond(){
+	document.write("<br>This is the second function");
+  }
+  
+  var firstInt = 2;
+  var secondInt = 3;
+  
+  var sum = addInt(firstInt, secondInt);
+  
+  function addInt(firstInt, secondInt){
+	return firstInt + secondInt;
+  }
+  
+  document.write(sum);
+  
+  //alertFunction(); 
+  function alertFunction(){
+	alert("this is a function");
+  }  
+  </script>
+  
+  <form>
+  <input type="button" value="button Value" onclick="alertFunction()">
+  </form>
+  
+  </body>
+</html>
