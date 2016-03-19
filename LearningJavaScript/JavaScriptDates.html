@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta name="generator"
+    content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title></title>
+  </head>
+  <body>
+  <script type="text/javascript">
+  
+  //document.write("does this work?");
+  //document.write("does this work?");
+  
+  
+	printTime();
+  
+	function printTime(){
+	var now = new Date();
+	var hours = now.getHours();
+	var minutes = now.getMinutes();
+	var seconds = now.getSeconds();
+	document.write(hours+":"+minutes+":"+seconds);
+	}
+	
+	setInterval("printTime()",1000); // works in chrome
+  
+  
+  
+  </script> 
+  </body>
+</html>

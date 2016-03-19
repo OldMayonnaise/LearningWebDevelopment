@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta name="generator"
+    content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>Javascript forms</title>
+  </head>
+  <body>  
+  
+  <!-- <form>
+  UserName:<input type="text"/>
+  Password:<input type="text"/>
+  <input type="submit" value="submit"/> 
+  </form>
+  <br> -->
+  
+  <form name="secondForm">
+  Username:<input type="text" name="username" />
+  Password:<input type="text" name="password" />
+  <input type="submit" value="submit" /> 
+  </form>
+ 
+  <script type="text/javascript">
+	var elementName = document.forms[0].element[1].name;
+	document.write(elementName);
+  
+  // javascript add your forms to an array
+  // form.length = number of input tags in form
+  //var x = document.forms[0].length; // documents contain an array of forms
+  //document.write(x);
+  </script>
+  
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta name="generator"
+    content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>Javascript forms</title>
+  </head>  
+	<body>	
+	<form name="secondForm">
+	Username:<input type="text" name="username" value="test"/>
+	Password:<input type="text" name="password" />
+	<input type="submit" value="submit" /> 
+	</form>
+	
+ 
+	<script type="text/javascript">	
+	var x = document.forms["secondForm"].element["username"].value;
+	document.write(x); 
+	//document.write("test"); 
+	
+	</script>
+	
+  
+  </body>
+</html>

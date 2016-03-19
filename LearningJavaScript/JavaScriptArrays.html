@@ -16,6 +16,12 @@
 		var numbersArray = new Array(223,445,111,54,6,34);		
 		var userDataArray = new Array();
 		
+		var assosiativeArrayLondhand = new array();
+		assosiativeArrayLondhand['firstKey'] = "first Value";
+		assosiativeArrayLondhand['secondKey'] = "second Value"; // quotes and commas interchangable
+				
+		var assosiativeArrayShortHand = {'testKey':'testValue', 'secondTestKey':'secondTestValue'}; // shorthand way of creating assosiative array
+		
 		
 	</script>	
   </head>
@@ -48,11 +54,19 @@
 		numbersArray.sort(); // sorts numerically		
 		document.write(numbersArray); // display sorted number array to console
 		
-		for(index = 0; index < 3; index++){
-			userDataArray[index] = prompt("enter some user data",""); // popup collects user data
-		}
+		//for(index = 0; index < 3; index++){
+		//	userDataArray[index] = prompt("enter some user data",""); // popup collects user data
+		//}
 		
 		document.write(userDataArray);
+		
+		document.write("<br>");
+		
+		combinedArray[combinedArray.length] = "test element"; // simple way to add an element to the end of an array
+		
+		for(index = 0; index < combinedArray.length; index++){
+			document.write(combinedArray[index]+"<br>");
+		}
 		
 		
 	</script>	
