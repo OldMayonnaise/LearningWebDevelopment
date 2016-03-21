@@ -4,18 +4,33 @@
     content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
     <title>Javascript forms</title>
   </head>  
-	<body>	
+	<body>
+	<form name="firstForm">
+	First Name:<input type="text" name="firstName"/>
+	Last Name:<input type="text" name="lastName"/>
+	<input type="submit" value="submit"/>
+	</form>
+	
+	<br>
 	<form name="secondForm">
-	Username:<input type="text" name="username" value="test"/>
-	Password:<input type="text" name="password" />
+	Username:<input type="text" name="username"/>
+	Password:<input type="password" name="password"/>
 	<input type="submit" value="submit" /> 
 	</form>
 	
+	
+	
  
-	<script type="text/javascript">	
-	var x = document.forms["secondForm"].element["username"].value;
-	document.write(x); 
-	//document.write("test"); 
+	<script type="text/javascript">
+
+	var w = document.firstForm.elements[0].name;	
+	var x = document.forms[1].username.name;	
+	var y = document.forms[1].elements[0].name;
+	document.write(w); 
+	document.write('<br>');
+	document.write(x);
+	document.write('<br>');	
+	document.write(y);
 	
 	</script>
 	
