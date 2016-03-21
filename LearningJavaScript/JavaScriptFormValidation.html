@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <meta name="generator"
+    content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>Javascript forms</title>
+<script type="text/javascript">
+	
+function validator(){
+	if(document.validationForm.theBox.checked){// this is true if it's checked and untrue if not checked.
+		alert("yes its checked");		
+	} else {
+		alert("no it's not checked");
+	}
+}
+</script>
+  </head>  
+	<body>
+	<form name="validationForm">
+	<input type="checkbox" name="theBox"/>
+	<input type="button" value="Press Me" onClick="validator()"/>	
+	</form>  
+  </body>
+</html>
